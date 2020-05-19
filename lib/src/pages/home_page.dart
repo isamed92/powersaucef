@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
   Widget _getAppBar() {
     return AppBar(
         title: Text('POWERSAUCEF', style: _appBarTitleStyle,),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.black54,
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.settings),
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _getRoutine() {
-    return CardRoutine();
+    return Center(child: CardRoutine());
   }
 }
 
