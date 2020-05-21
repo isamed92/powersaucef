@@ -1,5 +1,7 @@
 
 
+import 'package:powersaucef/src/models/activity_model.dart';
+
 class Routine {
   String name;
   String tag;
@@ -7,6 +9,7 @@ class Routine {
   int difficulty;
   String duration;
   String bgImg;
+  List<Activity> excersices;
 
   Routine({
     this.name,
@@ -14,7 +17,8 @@ class Routine {
     this.level,
     this.difficulty,
     this.duration,
-    this.bgImg
+    this.bgImg,
+    this.excersices
   });
 
 }

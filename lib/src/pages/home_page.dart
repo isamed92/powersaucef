@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:powersaucef/src/widgets/card_widget.dart';
+import 'package:powersaucef/src/widgets/card_routine_widget.dart';
 
 
 class HomePage extends StatelessWidget {

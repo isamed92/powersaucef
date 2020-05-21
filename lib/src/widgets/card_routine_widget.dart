@@ -1,66 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:powersaucef/src/models/ROUTINES_DATA.dart';
 import 'package:powersaucef/src/models/routine_model.dart';
 
 class CardRoutine extends StatelessWidget {
-  final List<Routine> rutinas = [
-    Routine(
-        name: 'Principiante I',
-        tag: 'Pago',
-        level: 'FACIL',
-        duration: '50MIN',
-        difficulty: 1,
-        bgImg: 'assets/prueba.jpg'),
-    Routine(
-        name: 'Principiante II',
-        tag: 'Pago',
-        level: 'FACIL',
-        duration: '40MIN',
-        difficulty: 1,
-        bgImg: 'assets/pecho.jpg'),
-    Routine(
-        name: 'Pecho Avanzado I',
-        tag: 'Gratis',
-        level: 'DIFICIL',
-        duration: '30MIN',
-        difficulty: 3,
-        bgImg: 'assets/brazos.jpg'),
-    Routine(
-        name: 'Biceps Intermedio',
-        tag: 'Pago',
-        level: 'REGULAR',
-        duration: '60MIN',
-        difficulty: 2,
-        bgImg: 'assets/pecho.jpg'),
-    Routine(
-        name: 'Triceps Intermedio',
-        tag: 'Gratis',
-        level: 'REGULAR',
-        duration: '10MIN',
-        difficulty: 2,
-        bgImg: 'assets/prueba.jpg'),
-    Routine(
-        name: 'Brazos Avanzado III',
-        tag: 'Pago',
-        level: 'DIFICIL',
-        duration: '50MIN',
-        difficulty: 3,
-        bgImg: 'assets/brazos.jpg'),
-  ];
+  final List<Routine> rutinas = RUTINAS().getRutinas();
 
   @override
   Widget build(BuildContext context) {
     final _screenSize = MediaQuery.of(context).size;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
-      child: Container(
-        child: _info(),
-        height: _screenSize.height * .30,
-        width: _screenSize.width * .85,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(rutinas[2].bgImg), fit: BoxFit.cover)),
-        // color: Colors.orange,
+    return GestureDetector(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: Container(
+          child: _info(),
+          height: _screenSize.height * .30,
+          width: _screenSize.width * .85,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(rutinas[2].bgImg), fit: BoxFit.cover)),
+        ),
       ),
+      onTap: (){
+        Navigator.pushNamed(context, 'routine', arguments: rutinas[2]);
+      },
     );
   }
 
