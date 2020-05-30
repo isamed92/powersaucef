@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:powersaucef/src/widgets/card_routine_widget.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatelessWidget {
   final _appBarTitleStyle = TextStyle(fontSize: 14.0, );
@@ -9,7 +10,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _getAppBar(),
-      body: _getContent(),
+      body: Center(child: _getFirebaseData()),
+      // body: _getContent(),
       );
   }
 
@@ -52,5 +54,28 @@ class HomePage extends StatelessWidget {
   Widget _getRoutine() {
     return Center(child: CardRoutine());
   }
+
+  Widget _getFirebaseData(){
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('users').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError)
+          return new Text('Error: ${snapshot.error}');
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting: return new Text('Cargando...');
+          default:
+            return new ListView(
+              children: snapshot.data.documents.map((DocumentSnapshot document) {
+                return new ListTile(
+                  title: new Text(document['fullname'],),
+                  subtitle: new Text(document['email'],),
+                );
+              }).toList(),
+            );
+        }
+      },
+    );
+  }
+
 }
 

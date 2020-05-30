@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "686831413016",
+    "firebase_url": "https://powersouce-d6a2a.firebaseio.com",
+    "project_id": "powersouce-d6a2a",
+    "storage_bucket": "powersouce-d6a2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686831413016:android:e9c89344fe69692282a06d",
+        "android_client_info": {
+          "package_name": "com.example.powersaucef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686831413016-qvjjkkon4tfmgd89m9uqebekqcm1s2de.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjTYEUNaxbdJTys2iFlfAmFMY3Np9ChUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686831413016-qvjjkkon4tfmgd89m9uqebekqcm1s2de.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "686831413016-d291fne6n8n8segdlap3e7he613hehcr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eia.powersouce.flutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
