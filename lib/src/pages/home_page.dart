@@ -65,16 +65,30 @@ class HomePage extends StatelessWidget {
           case ConnectionState.waiting: return new Text('Cargando...');
           default:
             return new ListView(
+              padding: EdgeInsets.all(20.0),
               children: snapshot.data.documents.map((DocumentSnapshot document) {
-                return new ListTile(
-                  title: new Text(document['fullname'],),
-                  subtitle: new Text(document['email'],),
+                return Row(
+
+                  children: <Widget>[
+                    Text(document['fullname'], style: TextStyle(fontSize: 25.0)),
+                    SizedBox(width: 50.0,),
+                    Text(document['email'],),
+                    SizedBox(width: 50.0,),
+                    Text(document['status'].toString(), style: TextStyle(color: _getColor(document['status']),fontSize: 20.0))
+                  ] 
+
                 );
               }).toList(),
             );
         }
       },
     );
+  }
+
+  Color _getColor(bool status){
+    
+    return (status ? Colors.green : Colors.red);
+
   }
 
 }
